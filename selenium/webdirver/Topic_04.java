@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 public class Topic_04 {
     @Test
     public void TC_01(){
-        //ADD TC_04
+        //EDIT THIS LINE
     }
+    @Test
+    public void TC_02(){}
+
 }
