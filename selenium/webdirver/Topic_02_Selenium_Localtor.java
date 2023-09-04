@@ -1,6 +1,6 @@
 package webdirver;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.By;//1 kiểu dữ liệu, cũng là 1 kiểu class
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
