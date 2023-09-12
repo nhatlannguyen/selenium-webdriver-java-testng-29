@@ -64,6 +64,14 @@ public class Topic_05_Xpath_Css {
     }
     @Test
     public void Register_03_Incorrect_Confirm_Email(){
+        //Clear dữ liệu đã nhập
+        driver.findElement(By.id("txtFirstname")).clear();
+        driver.findElement(By.id("txtEmail")).clear();
+        driver.findElement(By.id("txtCEmail")).clear();
+        driver.findElement(By.id("txtPassword")).clear();
+        driver.findElement(By.id("txtCPassword")).clear();
+        driver.findElement(By.id("txtPhone")).clear();
+        //Action
         driver.findElement(By.id("txtFirstname")).sendKeys("Joe bin");
         driver.findElement(By.id("txtEmail")).sendKeys("joebin@gmail.com");
         driver.findElement(By.id("txtCEmail")).sendKeys("456@1432.com");
@@ -77,6 +85,14 @@ public class Topic_05_Xpath_Css {
     }
     @Test
     public void Register_04_Incorrect_Password(){
+        //Clear dữ liệu đã nhập
+        driver.findElement(By.id("txtFirstname")).clear();
+        driver.findElement(By.id("txtEmail")).clear();
+        driver.findElement(By.id("txtCEmail")).clear();
+        driver.findElement(By.id("txtPassword")).clear();
+        driver.findElement(By.id("txtCPassword")).clear();
+        driver.findElement(By.id("txtPhone")).clear();
+        //action
         driver.findElement(By.id("txtFirstname")).sendKeys("Joe bin");
         driver.findElement(By.id("txtEmail")).sendKeys("joebin@gmail.com");
         driver.findElement(By.id("txtCEmail")).sendKeys("joebin@gmail.com");
@@ -91,6 +107,14 @@ public class Topic_05_Xpath_Css {
     }
     @Test
     public void Register_05_Incorrect_Confirm_Password(){
+        //Clear dữ liệu đã nhập
+        driver.findElement(By.id("txtFirstname")).clear();
+        driver.findElement(By.id("txtEmail")).clear();
+        driver.findElement(By.id("txtCEmail")).clear();
+        driver.findElement(By.id("txtPassword")).clear();
+        driver.findElement(By.id("txtCPassword")).clear();
+        driver.findElement(By.id("txtPhone")).clear();
+        //
         driver.findElement(By.id("txtFirstname")).sendKeys("Joe bin");
         driver.findElement(By.id("txtEmail")).sendKeys("joebin@gmail.com");
         driver.findElement(By.id("txtCEmail")).sendKeys("joebin@gmail.com");
@@ -104,6 +128,13 @@ public class Topic_05_Xpath_Css {
     }
     @Test
     public void Register_06_Incorrect_Phonenumber(){
+        //Clear dữ liệu đã nhập
+        driver.findElement(By.id("txtFirstname")).clear();
+        driver.findElement(By.id("txtEmail")).clear();
+        driver.findElement(By.id("txtCEmail")).clear();
+        driver.findElement(By.id("txtPassword")).clear();
+        driver.findElement(By.id("txtCPassword")).clear();
+        driver.findElement(By.id("txtPhone")).clear();
         //phone less than 10 char
         driver.findElement(By.id("txtFirstname")).sendKeys("Joe bin");
         driver.findElement(By.id("txtEmail")).sendKeys("joebin@gmail.com");
