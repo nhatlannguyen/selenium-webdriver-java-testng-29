@@ -43,7 +43,7 @@ public class Topic_06_WebBrower_Commans {
         }
     @Test
     public void TC_01(){
-//nguyên tắc khi dùng hàm: tên hàm - hàm dùng làm gì, có tham số hay không, trả về cái gì
+        //nguyên tắc khi dùng hàm: tên hàm - hàm dùng làm gì, có tham số hay không, trả về cái gì
         //void: không trả về cái gì, chỉ là đang thao tác trên brower
         //set trực tiếp giá trị
         driver.get("https://www.facebook.com/");
@@ -63,14 +63,26 @@ public class Topic_06_WebBrower_Commans {
         List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
 
         //tại sao lại cần phải lấy dữ liệu ra để làm gì? để kiểm tra xem đúng hay sai (verify dữ liệu)
+        //Dùng để lấy ra Url của màn hình/page hiện tại đang đứng
         driver.getCurrentUrl();
-        driver.getPageSource();
-        driver.getTitle();
-        driver.getWindowHandle();
-        driver.getWindowHandles();//không cho lưu trùng lặp, id các cửa sổ là duy nhất, nếu có nhiều id trùng nhau sẽ chỉ lấy 1 giá trị
 
         //nếu chỉ dùng 1 lần thì không cần khai báo biến
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.facebook.com/");
+
+        //Lấy ra page source HTML/CSS/JS của page hiện tại
+        //Verify 1 cách tương đối
+        driver.getPageSource();
+        Assert.assertTrue(driver.getCurrentUrl().contains("Tạo Trang dành cho người nổi tiếng, thương hiệu hoặc doanh nghiệp."));
+
+
+        //Lấy ra title của page hiện tại
+        driver.getTitle();
+
+        //Lấy ra id của cửa sổ/Tab hiện tại
+        //Handle Window/Tab
+        driver.getWindowHandle();
+        driver.getWindowHandles();//không cho lưu trùng lặp, id các cửa sổ là duy nhất, nếu có nhiều id trùng nhau sẽ chỉ lấy 1 giá trị
+
 
     }
     @Test
