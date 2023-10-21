@@ -1,11 +1,10 @@
 package webdirver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.logging.LogType;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -82,6 +81,39 @@ public class Topic_06_WebBrower_Commans {
         //Handle Window/Tab
         driver.getWindowHandle();
         driver.getWindowHandles();//không cho lưu trùng lặp, id các cửa sổ là duy nhất, nếu có nhiều id trùng nhau sẽ chỉ lấy 1 giá trị
+
+        //Cookie - Framework
+        driver.manage().getCookies();
+
+        //get ra những log ở DevTool - Framework
+        driver.manage().logs().get(LogType.DRIVER);
+
+        //Apply cho việc tìm element
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
+        //chờ cho page được load xong
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+
+        //set trước khi dùng với thư viện JavascripExcutor
+        //Inject 1 đoạn code JS vào trong Brower/Element
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
+
+        //chạy full màn hình
+        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
+        driver.manage().window().minimize();
+
+        //Test GUI
+        //Test Responsive (Resolution)
+        driver.manage().window().setSize(new Dimension(1366,768));
+        driver.manage().window().setSize(new Dimension(1920,1080));
+        driver.manage().window().setSize(new Dimension(2560,1440));
+        driver.manage().window().getSize();
+
+        //set cho brower ở vị trí nào so với độ phân giải màn hình (run trên màn hình có kích thước bao nhiêu)
+        driver.manage().window().setPosition(new Point(0,0));
+        driver.manage().window().getPosition();
+
 
 
     }
