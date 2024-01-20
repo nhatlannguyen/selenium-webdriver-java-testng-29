@@ -6,14 +6,17 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogType;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Set;
 
-public class Topic_06_WebBrower_Commans {
+public class Topic_06_WebBrower_Commands_01 {
     //các câu lệnh để thao tác với Brower sẽ đứng sau biến driver.
     //driver.
     WebDriver driver;
@@ -41,7 +44,7 @@ public class Topic_06_WebBrower_Commans {
         driver.manage().window().maximize();
         }
     @Test
-    public void TC_01(){
+    public void TC_01() throws MalformedURLException {
         //nguyên tắc khi dùng hàm: tên hàm - hàm dùng làm gì, có tham số hay không, trả về cái gì
         //void: không trả về cái gì, chỉ là đang thao tác trên brower
         //set trực tiếp giá trị
@@ -114,15 +117,38 @@ public class Topic_06_WebBrower_Commans {
         driver.manage().window().setPosition(new Point(0,0));
         driver.manage().window().getPosition();
 
+        //Điều hướng trang web (các mũi tên quay lại hoặc chuyển tiếp hoặc load lại trang)
+        driver.navigate().back();
+        driver.navigate().refresh();
+        driver.navigate().forward();
 
+        //Thao tác với history của web page (back/forward)
+        driver.navigate().to("https://www.facebook.com/");
+        driver.navigate().to(new URL("https://www.facebook.com/"));
 
+        //thao tác với Alert/Window/Tab/Frame/iframe
+        driver.switchTo().alert().accept();
+        driver.switchTo().alert().dismiss();
+        driver.switchTo().alert().getText();
+        driver.switchTo().alert().sendKeys("Text");
+
+        String homePageWindowID = driver.getWindowHandle();
+        driver.switchTo().window(homePageWindowID);
+        Set<String> allWindowIDs = driver.getWindowHandles();
+
+        //Switch/handle frame (iframe)
+        driver.switchTo().frame(0);
+        driver.switchTo().frame("312312");
+        driver.switchTo().frame(driver.findElement((By.id(""))));
+
+        //Switch về HTML chưa frame trước đó
+        driver.switchTo().defaultContent();
+
+        //từ frame trong đi ra frame ngoài chứa nó
+        driver.switchTo().parentFrame();
     }
-    @Test
-    public void TC_02(){
-
-    }
-    @Test
-    public void TC_03(){
-
+    @AfterClass
+    public void afterClass(){
+        driver.quit();
     }
 }
