@@ -51,9 +51,6 @@ public class Topic_11_Button_Radio_Checkbox {
 
     }
 
-    private void sleepInSeconds(int i) {
-    }
-
     @Test
     public void TC_02_Fahasa_Button(){
         driver.get("https://www.fahasa.com/customer/account/create");
@@ -73,6 +70,8 @@ public class Topic_11_Button_Radio_Checkbox {
         Assert.assertTrue(loginButton.isEnabled());
 
         Assert.assertEquals(Color.fromString(loginButton.getCssValue("background-color")).asHex().toLowerCase(),"#C92127");;
+    }
+    private void sleepInSeconds(int i) {
     }
     @Test
     public void TC_03(){

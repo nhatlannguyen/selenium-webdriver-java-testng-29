@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Topic_00_Template {
@@ -34,5 +35,17 @@ public class Topic_00_Template {
     @AfterClass
     public void afterClass(){
         driver.quit();
+    }
+
+    public void sleepInSeconds(long timeInSeconds) {
+        try {
+            Thread.sleep(timeInSeconds * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public String getEmailAddress(){
+        Random rand=new Random();
+        return "chibeo" + rand.nextInt(99999) + "@gmail.net";
     }
 }
